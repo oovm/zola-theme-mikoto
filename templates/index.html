@@ -88,6 +88,19 @@
                             {% for page in paginator.pages %}
                                 <article class="post">
                                     {{ post_macros::title(page=page) }}
+                                    <div class="post-labels">
+                                        {% if page.taxonomies.categories %}
+                                        {% for category in page.taxonomies.categories %}
+                                            <a class="category" href="{{ get_taxonomy_url(kind="categories", name=category) }}"># {{ category }}</a>
+                                        {% endfor %}
+                                        {% endif %}
+
+                                        {% if page.taxonomies.tags %}
+                                        {% for tag in page.taxonomies.tags %}
+                                            <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}"># {{ tag }}</a>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </div>
                                     <div class="post__summary">
                                         {{ page.summary | safe }}
                                     </div>

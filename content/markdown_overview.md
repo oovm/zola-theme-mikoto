@@ -55,10 +55,10 @@ fn main() {
 
 ## A table
 
-| a  | table | in | markdown | !!                              |
-|----|-------|----|----------|---------------------------------|
-| 1  | 2     | 3  | 4        | 5                               |
-| 1  | we    | ew | we       | with a longish column inside it |
+| a   | table    | in  | markdown | !!                              |
+| --- | -------- | --- | -------- | ------------------------------- |
+| 1   | **bold** | x^2 | 4        | 5                               |
+| 1   | we       | ew  | `inline` | with a longish column inside it |
 
 ## An image
 

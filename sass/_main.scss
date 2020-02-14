@@ -26,6 +26,7 @@ main {
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
         border-color: rgba(0, 0, 0, 0.05);
         border-radius: 0.6rem;
+        margin-bottom: 1.5rem;
 
         .post__title {
             font-family: $decoration-font-family;
@@ -70,6 +71,57 @@ main {
             p {
                 margin: 0;
             }
+
+            &.colorquote {
+                position: relative;
+            }
+            &.colorquote:before {
+                content: " ";
+                position: absolute;
+                top: 50%;
+                left: -14.5px;
+                margin-top: -12px;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                text-align: center;
+                color: #fff;
+                background-size: 16px 16px;
+                background-position: 4px 4px;
+                background-repeat: no-repeat;
+            }
+            &.colorquote.info {
+                border-color: #209cee;
+                background-color: #def0fd;
+            }
+            &.colorquote.info:before {
+                background-color: #209cee;
+                background-image: url("/assets/quote/info.svg");
+            }
+            &.colorquote.success {
+                border-color: #23d160;
+                background-color: #cbf6da;
+            }
+            &.colorquote.success:before {
+                background-color: #23d160;
+                background-image: url("/assets/quote/success.svg");
+            }
+            &.colorquote.warning {
+                border-color: #ffdd57;
+                background-color: #fff6d1;
+            }
+            &.colorquote.warning:before {
+                background-color: #ffdd57;
+                background-image: url("/assets/quote/warning.svg");
+            }
+            &.colorquote.danger {
+                border-color: #ff3860;
+                background-color: #ffb3c2;
+            }
+            &.colorquote.danger:before {
+                background-color: #ff3860;
+                background-image: url("/assets/quote/danger.svg");
+            }
         }
 
         table {
@@ -78,7 +130,7 @@ main {
             margin: 10px 0;
             border-collapse: separate;
             border-spacing: 0;
-            border-radius: 0.5rem;
+            // border-radius: 0.6rem;
             box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
 
             thead {
@@ -203,9 +255,9 @@ main {
         margin: 1rem 0;
     }
 
-    .post + .post {
-        border-top: 1px solid #e6e6e6;
-    }
+    //.post + .post {
+    //    border-top: 1px solid #e6e6e6;
+    //}
 
     .pagination {
         clear: both;
