@@ -1,0 +1,24 @@
+name = "mikoto"
+description = "A robust, elegant dark theme"
+license = "MIT"
+homepage = ""
+min_version = "0.6.0"
+demo = ""
+
+[extra]
+even_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/categories", name = "Categories"},
+    {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "$BASE_URL/about", name = "About"},
+]
+even_title = "Mikoto"
+
+[author]
+name = "Aster"
+homepage = ""
+
+[original]
+name = "Vincent Prouillet"
+homepage = "https://www.vincentprouillet.com"
+repo = "https://github.com/getzola/even"

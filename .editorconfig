@@ -1,0 +1,15 @@
+[*]
+charset = utf-8
+
+
+[*.scss]
+indent_style = space
+indent_size = 4
+
+[*.toml]
+indent_style = space
+indent_size = 4
+
+[*.js]
+indent_style = space
+indent_size = 4
