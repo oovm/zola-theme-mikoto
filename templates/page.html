@@ -31,8 +31,26 @@
 </div>
 {% endif %}
 
+
+
+
 <article class="post">
     {{ post_macros::title(page=page) }}
+
+        <div class="post-labels">
+            {% if page.taxonomies.categories %}
+            {% for category in page.taxonomies.categories %}
+                <a class="category" href="{{ get_taxonomy_url(kind="categories", name=category) }}"># {{ category }}</a>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.taxonomies.tags %}
+            {% for tag in page.taxonomies.tags %}
+                <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}"># {{ tag }}</a>
+            {% endfor %}
+            {% endif %}
+        </div>
+
     <div class="post-content">
       {{ page.content | safe }}
     </div>
@@ -42,13 +60,7 @@
 
     <div class="post-footer">
         {% block page_footer %}
-            {% if page.taxonomies.tags %}
-                <div class="post-tags">
-                    {% for tag in page.taxonomies.tags %}
-                        <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">#{{ tag }}</a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+
             {% if page.earlier or page.later or page.lighter or page.heavier %}
                 <div class="post-nav">
                     {% if page.earlier %}
@@ -73,6 +85,8 @@
     {% block page_after_footer %}
     {% endblock page_after_footer %}
 </article>
+
+
 
 {% endblock content %}
 
