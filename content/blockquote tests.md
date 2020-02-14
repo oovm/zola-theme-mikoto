@@ -1,12 +1,11 @@
 +++
-title = "Blockquote Tests"
+title = "Blockquote Testing"
 date = 2019-07-01
 
 [taxonomies]
 categories = ["Tests"]
-tags = ["placeholder posts", "tag1"]
+tags = ["blockquote"]
 +++
-
 
 <blockquote class="colorquote info"><p>这是一条普通信息!</p></blockquote>
 
@@ -16,4 +15,7 @@ tags = ["placeholder posts", "tag1"]
 
 <blockquote class="colorquote danger"><p>这是一条危险信息!</p></blockquote>
 
+
 <!-- more -->
+
+

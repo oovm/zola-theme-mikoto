@@ -27,6 +27,13 @@
                   onload="renderMathInElement(document.body);"></script>
               {% endif %}
           {% endif %}
+
+        {% if config.extra.aplayer.enable %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+        {% endif %}
+
       {% endblock js %}
 
       {% block css %}

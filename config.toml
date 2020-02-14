@@ -20,3 +20,9 @@ even_menu = [
 ]
 
 even_title = "Mikoto"
+
+[extra.aplayer]
+enable = true
+cdn_js = ""
+cdn_css = ""
+cdn_meting = ""
