@@ -1,0 +1,4 @@
+<blockquote {% if type %} class="fancyquote {{type}}"{% else %} class="fancyquote info" {% endif %}>
+    {{ body | safe | trim | markdown }}
+    {% if author %} <br> -- {{ author}}</br> {% endif %}
+</blockquote>

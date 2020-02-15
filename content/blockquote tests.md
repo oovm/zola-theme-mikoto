@@ -7,15 +7,33 @@ categories = ["Tests"]
 tags = ["blockquote"]
 +++
 
-<blockquote class="colorquote info"><p>这是一条普通信息!</p></blockquote>
 
-<blockquote class="colorquote success"><p>这是一条成功信息!</p></blockquote>
+{% quote() %}
+这是一条**普通**信息!
+{% end %}
 
-<blockquote class="colorquote warning"><p>这是一条警告信息!</p></blockquote>
+{% quote(type = "success") %}
+这是一条**成功**信息!
+{% end %}
 
-<blockquote class="colorquote danger"><p>这是一条危险信息!</p></blockquote>
+{% quote(type = "warning") %}
+这是一条**警告**信息!
+{% end %}
+
+{% quote(type = "danger") %}
+这是一条**危险**信息!
+{% end %}
 
 
 <!-- more -->
 
 
+{% quote(type = "danger") %}
+
+<p> 靠 </p>
+
+## Danger
+
+This is a **danger** message!
+
+{% end %}
