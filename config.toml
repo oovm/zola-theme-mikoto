@@ -16,6 +16,7 @@ even_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "$BASE_URL/series", name = "Series"},
     {url = "$BASE_URL/about", name = "About"},
 ]
 
@@ -26,3 +27,14 @@ enable = true
 cdn_js = ""
 cdn_css = ""
 cdn_meting = ""
+
+[extra.aplayer.background]
+enable = true
+server = "netease"
+type = "album"
+id = "82260016"
+
+[extra.live2d]
+enbale = true
+
+

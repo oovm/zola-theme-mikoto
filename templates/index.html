@@ -17,6 +17,7 @@
 
       {% block js %}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
           {% if config.extra.katex_enable %}
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
 
@@ -34,6 +35,34 @@
         <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
         {% endif %}
 
+        {% if config.extra.aplayer.enable %}
+        <script src = "https://cdn.jsdelivr.net/npm/live2d-widget@latest/lib/L2Dwidget.min.js"></script>
+        <script type="text/javascript">
+            L2Dwidget
+            .init({
+                model: {
+                //    jsonPath: "https://cdn.jsdelivr.net/npm/live2d-widget-model-bilibili@latest/assets/models.json"
+                },
+                display: {
+                    position: "left"
+                },
+                dialog: {
+                    // ?????
+                    enable: true,
+                    script: {
+                        // ??? 10 ?????????
+                        'every idle 10s': '$hitokoto$',
+                        // ????????
+                        'hover .star': '??????????? (*/??*)',
+                        // ????????
+                        'tap body': '???????',
+                        // ????????
+                        'tap face': '???????????'
+                    }
+                }
+            });
+        </script>
+        {% endif %}
       {% endblock js %}
 
       {% block css %}
