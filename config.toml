@@ -8,20 +8,19 @@ highlight_theme = "monokai"
 taxonomies = [
     {name = "categories", rss = true},
     {name = "tags", rss = true},
+    {name = "series", rss = true},
 ]
 
 [extra]
 author = "Aster"
-even_menu = [
+mikoto_title = "Mikoto"
+mikoto_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
     {url = "$BASE_URL/series", name = "Series"},
     {url = "$BASE_URL/about", name = "About"},
 ]
-
-even_title = "Mikoto"
-
 
 aplayer_enable = true
 aplayer_cdn_js = ""

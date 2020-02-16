@@ -18,6 +18,7 @@
     {% block js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
     {{post_macros::mathjax_load(link = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")}}
+    {#post_macros::katex_load(link = "https://cdn.jsdelivr.net/npm/katex@latest")#}
 
     {% if config.extra.aplayer_enable %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -46,7 +47,7 @@
     {{ post_macros::fork_on_github(link="page") }}
     <div id="mobile-navbar" class="mobile-navbar">
         <div class="mobile-header-logo">
-            <a href="/" class="logo">{{ config.extra.even_title }}</a>
+            <a href="/" class="logo">{{ config.extra.mikoto_title }}</a>
         </div>
         <div class="mobile-navbar-icon icon-out">
             <span></span>
@@ -57,7 +58,7 @@
 
     <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
         <ul class="mobile-menu-list">
-            {% for item in config.extra.even_menu %}
+            {% for item in config.extra.mikoto_menu %}
             <li class="mobile-menu-item">
                 <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
                 {{ item.name }}
@@ -68,10 +69,10 @@
     </nav>
 
     <header id="header">
-        <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.even_title }}</a></div>
+        <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.mikoto_title }}</a></div>
         <nav class="menu">
             <ul>
-                {% for item in config.extra.even_menu %}
+                {% for item in config.extra.mikoto_menu %}
                 <li>
                     <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
                     {{ item.name }}

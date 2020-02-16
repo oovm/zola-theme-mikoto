@@ -1,6 +1,7 @@
 +++
-title = "Math testing"
+title = "Math Testing"
 date = 2019-07-05
+
 [taxonomies]
 categories = ["Odd"]
 tags = ["placeholder posts", "prime-number posts"]
@@ -46,7 +47,7 @@ P_{x} (x , x^{\frac {1} {10}})
 \left\{\int_{\frac {1} {10}}^{\frac {1} {5}} \frac {d \alpha} {u (\frac {1} {2} - \alpha)} \int_{2}^{t - 10 a} \frac {\log (t - 1)} {t} \mathrm{d} t+\int_{\frac {1} {10}}^{\frac {2} {3}} \frac {d \alpha} {\alpha (\frac {1} {2} - \alpha)}\right\}\\
 &=\left\{\frac {(8 + 10 \sqrt {e}) x C_{x}} {\log x} \right\}
 \left\{\log 8 + \int_{\frac {1} {10}}^{\frac {1} {5}} \frac {d \alpha} {2 \pi (\frac {1} {2} - \alpha)} \int_{2}^{4 - 10 a} \frac {\log (t - 1)} {t} d t \right\}
-\end{aligned}$$</span> <p>显见, 当 <span class="math">$1\leq x \leq 2$</span> 时, 有 <span class="math">$\log x \leq \dfrac {x - 1} {2} + \dfrac {x - 1} {1 + x}$</span> , 故有:</p><p class="math">$$\begin{aligned}
+\end{aligned}$$</span> <p>显见, 当 <span class="math">$1\leq x \leq 2$</span> 时, 有 <span class="math">$\displaystyle{\log x \leq \frac {x - 1} {2} + \frac {x - 1} {1 + x}}$</span> , 故有:</p><p class="math">$$\begin{aligned}
 &\int_{3}^{4} \frac {d u} {u} \int_{2}^{u - 1} \frac {\log (t - 1)} {t} d t - \frac {1} {4} \int_{\frac {1} {10}}^{\frac {1} {3}} \frac {d \alpha} {\alpha (\frac {1} {2} - \alpha)} \int_{2}^{4 - 1) a} \frac {\log (t - 1)} {t} d t\\
 =& \int_{3}^{4} \left(\frac {1} {u} - \frac {2.5} {u (5 - u)}\right) d u \int_{2}^{u - 1} \frac {\log (t - 1)} {t} d t \\
 \geq& \int_{3}^{4} \frac {2.5 - u} {u (5 - u)} \mathrm{d}t \int_{2}^{u - 1} (\frac {t - 2} {2} + \frac {t - 2} {t}) \frac {d t} {t} \\
@@ -56,9 +57,8 @@ P_{x} (x , x^{\frac {1} {10}})
 =& \frac {1} {2} + 0.75 \log \frac {9} {8} - 1.5 \log \frac {4} {3} - \frac {\log 2} {4}\\
 \geq& 0.588335 - 0.6048075 \\
 =& - 0.0164725
-\end{aligned}$$</span> <p>综上所述:
-<span class="math">$\displaystyle{\begin{aligned}
+\end{aligned}$$</span> <p>综上所述:</p><p class="math">$$\begin{aligned}
 &P_{x} (x , x^{\frac {1} {10}}) - \frac {1} {2}\sum_{x^\frac{1}{10} < r \leq x^{\frac{1}{3}}} P_{x} (x , p , x^{\frac {1} {10}}) \\
 \geq& \left(\frac {(8 - 50 \sqrt {e}) x C_{x}} {(\log x)^{2}}\right)\cdot (\log 4 - \frac {\log 8} {2} - 0.0164725) \\
 \geq& \frac {(8 x C_{x}) (0.3301)} {(\log x)^{2}}
-\end{aligned}}$</span> </p><p>于是原命题得证</p>
+\end{aligned}$$</span> <p>于是原命题得证</p>

@@ -1,10 +1,12 @@
 @import "copyright";
 @import "live2d";
 
-.MathJax {
-    outline: 0;
-}
-.MathJax_Display {
+.math {
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.MathJax {
+    zoom: 115%;
+    outline: 0;
 }
