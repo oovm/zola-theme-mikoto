@@ -7,6 +7,12 @@ categories = ["Tests"]
 tags = ["blockquote"]
 +++
 
+```tex
+\quote{body = "这是一条**普通**信息!", type = "info"}
+\quote{body = "这是一条**成功**信息!", type = "success"}
+\quote{body = "这是一条**警告**信息!", type = "warning"}
+\quote{body = "这是一条**危险**信息!", type = "danger"}
+```
 
 {% quote() %}
 这是一条**普通**信息!
@@ -27,13 +33,3 @@ tags = ["blockquote"]
 
 <!-- more -->
 
-
-{% quote(type = "danger") %}
-
-<p> 靠 </p>
-
-## Danger
-
-This is a **danger** message!
-
-{% end %}

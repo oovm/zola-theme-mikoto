@@ -22,6 +22,7 @@ main {
 
     .about,
     .post {
+        -webkit-user-select: none;
         padding: 1.5rem 1.5rem;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
         border-color: rgba(0, 0, 0, 0.05);
@@ -72,10 +73,10 @@ main {
                 margin: 0;
             }
 
-            &.colorquote {
+            &.fancyquote {
                 position: relative;
             }
-            &.colorquote:before {
+            &.fancyquote:before {
                 content: " ";
                 position: absolute;
                 top: 50%;
@@ -90,37 +91,45 @@ main {
                 background-position: 4px 4px;
                 background-repeat: no-repeat;
             }
-            &.colorquote.info {
-                border-color: #209cee;
-                background-color: #def0fd;
+            &.fancyquote {
+                &.info {
+                    border-color: #209cee;
+                    background-color: #def0fd;
+                }
+                &.info:before {
+                    background-color: #209cee;
+                    background-image: url("/assets/quote/info.svg");
+                }
             }
-            &.colorquote.info:before {
-                background-color: #209cee;
-                background-image: url("/assets/quote/info.svg");
+            &.fancyquote {
+                &.success {
+                    border-color: #23d160;
+                    background-color: #cbf6da;
+                }
+                &.success:before {
+                    background-color: #23d160;
+                    background-image: url("/assets/quote/success.svg");
+                }
             }
-            &.colorquote.success {
-                border-color: #23d160;
-                background-color: #cbf6da;
+            &.fancyquote {
+                &.warning {
+                    border-color: #ffdd57;
+                    background-color: #fff6d1;
+                }
+                &.warning:before {
+                    background-color: #ffdd57;
+                    background-image: url("/assets/quote/warning.svg");
+                }
             }
-            &.colorquote.success:before {
-                background-color: #23d160;
-                background-image: url("/assets/quote/success.svg");
-            }
-            &.colorquote.warning {
-                border-color: #ffdd57;
-                background-color: #fff6d1;
-            }
-            &.colorquote.warning:before {
-                background-color: #ffdd57;
-                background-image: url("/assets/quote/warning.svg");
-            }
-            &.colorquote.danger {
-                border-color: #ff3860;
-                background-color: #ffb3c2;
-            }
-            &.colorquote.danger:before {
-                background-color: #ff3860;
-                background-image: url("/assets/quote/danger.svg");
+            &.fancyquote {
+                &.danger {
+                    border-color: #ff3860;
+                    background-color: #ffb3c2;
+                }
+                &.danger:before {
+                    background-color: #ff3860;
+                    background-image: url("/assets/quote/danger.svg");
+                }
             }
         }
 

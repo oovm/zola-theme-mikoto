@@ -4,7 +4,7 @@ compile_sass = true
 title = "mikoto theme"
 description = ""
 highlight_code = true
-
+highlight_theme = "monokai"
 taxonomies = [
     {name = "categories", rss = true},
     {name = "tags", rss = true},
@@ -22,19 +22,14 @@ even_menu = [
 
 even_title = "Mikoto"
 
-[extra.aplayer]
-enable = true
-cdn_js = ""
-cdn_css = ""
-cdn_meting = ""
 
-[extra.aplayer.background]
-enable = true
-server = "netease"
-type = "album"
-id = "82260016"
+aplayer_enable = true
+aplayer_cdn_js = ""
+aplayer_cdn_css = ""
+aplayer_cdn_meting = ""
+aplayer_background = true
+aplayer_background_server = "netease"
+aplayer_background_type = "album"
+aplayer_background_id = "82260016"
 
-[extra.live2d]
-enbale = true
-
-
+live2d_enbale = true

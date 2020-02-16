@@ -46,6 +46,7 @@ pre {
 
 pre,
 code {
+    -webkit-user-select: text;
     font-size: 90%;
     overflow: auto;
     font-family: $code-font-family;
@@ -54,6 +55,7 @@ code {
 }
 
 pre > code {
+    -webkit-user-select: text;
     display: block;
     border: none;
     font-style: normal;

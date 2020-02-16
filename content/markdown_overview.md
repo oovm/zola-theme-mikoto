@@ -1,7 +1,5 @@
 +++
 title = "Markdown Demonstration"
-weight = 1
-order = 1
 date = 2018-07-18
 insert_anchor_links = "right"
 [taxonomies]

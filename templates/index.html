@@ -2,144 +2,143 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-      <!-- Enable responsiveness on mobile devices-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-      <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-      {% if config.generate_rss %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
-      {% endif %}
+    {% if config.generate_rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
+    {% endif %}
 
-      {% block js %}
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    {% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+    {{post_macros::mathjax_load(link = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")}}
 
-        {% if config.extra.aplayer.enable %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-        {% endif %}
+    {% if config.extra.aplayer_enable %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    {% endif %}
 
-        {% if config.extra.aplayer.enable %}
-        <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-        {% endif %}
-      {% endblock js %}
-
-      {% block css %}
-          <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
-
-      {% endblock css %}
-
-      {% block extra_head %}
-      {% endblock extra_head %}
-    </head>
-
-    <body>
-        <div class="container">
-            {{ post_macros::fork_on_github(link="page") }}
-            <div id="mobile-navbar" class="mobile-navbar">
-              <div class="mobile-header-logo">
-                <a href="/" class="logo">{{ config.extra.even_title }}</a>
-              </div>
-              <div class="mobile-navbar-icon icon-out">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-
-            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
-              <ul class="mobile-menu-list">
-                {% for item in config.extra.even_menu %}
-                    <li class="mobile-menu-item">
-                        <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
-                            {{ item.name }}
-                        </a>
-                    </li>
-                {% endfor %}
-              </ul>
-            </nav>
-
-            <header id="header">
-                <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.even_title }}</a></div>
-                <nav class="menu">
-                    <ul>
-                        {% for item in config.extra.even_menu %}
-                            <li>
-                                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
-                                    {{ item.name }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-            </header>
-
-            <main>
-                <div class="content" id="mobile-panel">
-                    {% block content %}
-                        <div class="posts">
-                            {% for page in paginator.pages %}
-                                <article class="post">
-                                    {{ post_macros::title(page=page) }}
-                                    <div class="post-labels">
-                                        {% if page.taxonomies.categories %}
-                                        {% for category in page.taxonomies.categories %}
-                                            <a class="category" href="{{ get_taxonomy_url(kind="categories", name=category) }}"># {{ category }}</a>
-                                        {% endfor %}
-                                        {% endif %}
-
-                                        {% if page.taxonomies.tags %}
-                                        {% for tag in page.taxonomies.tags %}
-                                            <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}"># {{ tag }}</a>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                    <div class="post__summary">
-                                        {{ page.summary | safe }}
-                                    </div>
-                                    <div class="read-more">
-                                        <a href="{{ page.permalink }}">Read more...</a>
-                                    </div>
-                                </article>
-                            {% endfor %}
-                        </div>
-                        <nav class="pagination">
-                            {% if paginator.previous %}
-                                <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
-                            {% endif %}
-                            {% if paginator.next %}
-                                <a class="next" href="{{ paginator.next }}">Next ›</a>
-                            {% endif %}
-                        </nav>
-                    {% endblock content %}
-                </div>
-            </main>
+    {% if config.extra.aplayer_enable %}
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+    {% endif %}
 
 
+    {% endblock js %}
 
+    {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
+    {% endblock css %}
 
-            <footer id="footer">
-            {% block footer %}
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
 
-            <div class="container">
-                <div class="bottom-bar">
-                    Made {#with<span class="heart"></span>#}
-                    by
-                    <a href="https://github.com/cnguu/" target="_blank" rel="noopener noreferrer">Aster</a>
-                </div>
-            </div>
-            {% endblock footer %}
-            </footer>
+<body>
+<div class="container">
+    {{ post_macros::fork_on_github(link="page") }}
+    <div id="mobile-navbar" class="mobile-navbar">
+        <div class="mobile-header-logo">
+            <a href="/" class="logo">{{ config.extra.even_title }}</a>
         </div>
+        <div class="mobile-navbar-icon icon-out">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 
-      {% block js_body %}
-          <script type="text/javascript" src="{{ get_url(path="even.js", trailing_slash=false) }}" ></script>
+    <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+        <ul class="mobile-menu-list">
+            {% for item in config.extra.even_menu %}
+            <li class="mobile-menu-item">
+                <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                {{ item.name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <header id="header">
+        <div class="logo"><a href="{{ config.base_url }}">{{ config.extra.even_title }}</a></div>
+        <nav class="menu">
+            <ul>
+                {% for item in config.extra.even_menu %}
+                <li>
+                    <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+                    {{ item.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content" id="mobile-panel">
+            {% block content %}
+                <div class="posts">
+                    {% for page in paginator.pages %}
+                        <article class="post">
+                            {{ post_macros::title(page=page) }}
+                            <div class="post-labels">
+                                {% if page.taxonomies.categories %}
+                                {% for category in page.taxonomies.categories %}
+                                    <a class="category" href="{{ get_taxonomy_url(kind="categories", name=category) }}"># {{ category }}</a>
+                                {% endfor %}
+                                {% endif %}
+
+                                {% if page.taxonomies.tags %}
+                                {% for tag in page.taxonomies.tags %}
+                                    <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}"># {{ tag }}</a>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="post__summary">
+                                {{ page.summary | safe }}
+                            </div>
+                            <div class="read-more">
+                                <a href="{{ page.permalink }}">Read more...</a>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                <nav class="pagination">
+                    {% if paginator.previous %}
+                        <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+                    {% endif %}
+                    {% if paginator.next %}
+                        <a class="next" href="{{ paginator.next }}">Next ›</a>
+                    {% endif %}
+                </nav>
+            {% endblock content %}
+        </div>
+    </main>
+
+    <footer id="footer">
+        {% block footer %}
+
+        <div class="container">
+            <div class="bottom-bar">
+                Made {#with<span class="heart"></span>#}
+                by
+                <a href="https://github.com/cnguu/" target="_blank" rel="noopener noreferrer">Aster</a>
+            </div>
+        </div>
+        {% endblock footer %}
+    </footer>
+</div>
+
+{% block js_body %}
+<script type="text/javascript" src="{{ get_url(path="even.js", trailing_slash=false) }}" ></script>
       {% endblock js_body %}
     </body>
 

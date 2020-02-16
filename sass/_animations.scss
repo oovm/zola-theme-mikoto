@@ -155,18 +155,34 @@
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.3);
     background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    height: 0.4rem;
+    width: 0.4rem;
     background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 0.4rem rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
     background-color: #555;
 }
 
+.undercover {
+    padding: 3px 5px;
+    //border-radius: 4px;
+    font-size: small;
+    background-color: #252525;
+    color: #252525;
+    text-shadow: none;
+}
+
+.undercover:hover,
+.undercover:active,
+.undercover.off {
+    transition: color 0.13s linear;
+    color: #fff;
+}

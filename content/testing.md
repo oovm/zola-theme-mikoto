@@ -48,3 +48,27 @@ showConfirmButton: false
 </div>
 
 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="448.35131249999995" height="124.87912500000002" viewBox="0 0 9340 2601" id="view-svg" style="zoom: 1;">
+    <defs>
+    <style type="text/css">@font-face{font-family:rex;src:url('rex-xits.otf');}</style>
+    </defs>
+    <g font-family="rex" font-size="1000">
+<text transform="translate(250, 1849)">𝑥</text>
+<text transform="translate(1142, 1849)">=</text>
+<text transform="translate(2295, 1209)">−</text>
+<text transform="translate(3015, 1209)">𝑏</text>
+<text transform="translate(3755, 1209)">±</text>
+<text transform="translate(4679, 1022)">√</text>
+<rect x="5473" y="100" width="3517" height="68" fill="#000"></rect>
+<text transform="translate(5473, 1209)">𝑏</text>
+<text transform="translate(6016, 734) scale(0.70)">2</text>
+<text transform="translate(6584, 1209)">−</text>
+<text transform="translate(7526, 1209)">4</text>
+<text transform="translate(8021, 1209)">𝑎</text>
+<text transform="translate(8576, 1209)">𝑐</text>
+<rect x="2295" y="1557" width="6694" height="68" fill="#000"></rect>
+<text transform="translate(5118, 2489)">2</text>
+<text transform="translate(5613, 2489)">𝑎</text>
+</g>
+</svg>

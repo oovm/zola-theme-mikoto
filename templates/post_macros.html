@@ -35,3 +35,61 @@
     </svg>
 </a>
 {% endmacro title %}
+
+{% macro mathjax_load(link) %}
+<script>
+MathJax = {
+    options: {
+        skipHtmlTags: [
+            'script', 'noscript', 'style', 'textarea', 'pre',
+            'code', 'annotation', 'annotation-xml'
+        ],
+        includeHtmlTags: {
+            br: ''
+        },
+    },
+    tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [["$$","$$"]],
+        tags: 'ams',
+        macros: {
+            '|->': '\\mapsto',
+            '<->': '\\leftrightarrow',
+            '<=>': '\\Leftrightarrow',
+            '==>': '\\Longrightarrow',
+            '->': '\\rightarrow',
+            '=>': '\\Rightarrow',
+            // Dots
+            '...': '\\cdots',
+            // Arithmatic
+            '+-': '\\pm',
+            '-+': '\\mp',
+            '==': '\\equiv',
+            '!=': '\\ne',
+            '>=': '\\geqslant',
+            '<=': '\\leqslant',
+            '<<': '\\ll',
+            '>>': '\\gg',
+            // Functions
+            arccot: '\\operatorname{arccot}',
+            arcsec: '\\operatorname{arcsec}',
+            arccsc: '\\operatorname{arccsc}',
+        },
+    },
+    svg: {fontCache: 'global'}
+}
+</script>
+<script id="MathJax-script" async src={{link}}></script>
+{% endmacro title %}
+
+{% macro katex_load(link) %}
+<script type="text/javascript">
+require(
+    ["https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js"],
+    katex => {
+
+    }
+);
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.css" crossorigin="anonymous">
+{% endmacro title %}
