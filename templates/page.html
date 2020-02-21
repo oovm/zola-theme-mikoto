@@ -32,51 +32,45 @@
 {% endif %}
 
 
-
-
 <article class="post">
     {{ post_macros::title(page=page) }}
-
-        <div class="post-labels">
-            {% if page.taxonomies.categories %}
-            {% for category in page.taxonomies.categories %}
-                <a class="category" href="{{ get_taxonomy_url(kind="categories", name=category) }}"># {{ category }}</a>
-            {% endfor %}
-            {% endif %}
-
-            {% if page.taxonomies.tags %}
-            {% for tag in page.taxonomies.tags %}
-                <a class="tag" href="{{ get_taxonomy_url(kind="tags", name=tag) }}"># {{ tag }}</a>
-            {% endfor %}
-            {% endif %}
-        </div>
+    {{ post_macros::labels(page=page) }}
 
     <div class="post-content">
-      {{ page.content | safe }}
+        {{ page.content | safe }}
     </div>
 
     {% block page_before_footer %}
+
     {% endblock page_before_footer %}
 
     <div class="post-footer">
         {% block page_footer %}
+ {{ post_macros::copyright(page=page) }}
 
-            {% if page.earlier or page.later or page.lighter or page.heavier %}
-                <div class="post-nav">
-                    {% if page.earlier %}
-                        <a class="previous" href="{{ page.earlier.permalink }}">‹ {{ page.earlier.title }}</a>
-                    {% endif %}
-                    {% if page.later %}
-                        <a class="next" href="{{ page.later.permalink }}">{{ page.later.title }} ›</a>
-                    {% endif %}
-                    {% if page.lighter %}
-                        <a class="previous" href="{{ page.lighter.permalink }}">‹ {{ page.lighter.title }}</a>
-                    {% endif %}
-                    {% if page.heavier %}
-                        <a class="next" href="{{ page.heavier.permalink }}">{{ page.heavier.title }} ›</a>
-                    {% endif %}
-                </div>
+
+        <div class="footer-buttons">
+            <button type="button" class="footer"><span class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp;赞赏</span></button>
+            <button type="button" class="footer footer-weak"><span class="text"><i class="fa fa-share-square-o" aria-hidden="true"></i>&nbsp;&nbsp;分享</span></button>
+        </div>
+
+
+        {% if page.earlier or page.later or page.lighter or page.heavier %}
+        <div class="post-nav">
+            {% if page.earlier %}
+            <a class="next" href="{{ page.earlier.permalink }}">{{ page.earlier.title }} ›</a>
             {% endif %}
+            {% if page.later %}
+            <a class="previous" href="{{ page.later.permalink }}">‹ {{ page.later.title }}</a>
+            {% endif %}
+            {% if page.lighter %}
+            <a class="next" href="{{ page.lighter.permalink }}">{{ page.lighter.title }} ›</a>
+            {% endif %}
+            {% if page.heavier %}
+            <a class="previous" href="{{ page.heavier.permalink }}">‹ {{ page.heavier.title }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
 
         {% endblock page_footer %}
 
@@ -85,7 +79,6 @@
     {% block page_after_footer %}
     {% endblock page_after_footer %}
 </article>
-
 
 
 {% endblock content %}

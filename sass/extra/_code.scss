@@ -1,0 +1,58 @@
+.fancycode {
+    position: relative;
+    border-radius: 6px;
+    margin: 1rem 0;
+
+    overflow-x: auto;
+    background-color: #f3f6f9;
+
+    .controls {
+        display: initial;
+        position: absolute;
+        top: 0.8rem;
+        width: 100%;
+        .circle {
+            position: absolute;
+            top: 1px;
+            width: 14px;
+            height: 14px;
+            border-radius: 7px;
+
+            &.red {
+                left: 17px;
+                background-color: #ff5f56;
+            }
+            &.yellow {
+                left: 39px;
+                background-color: #ffbd2e;
+            }
+            &.green {
+                left: 61px;
+                background-color: #27c93f;
+            }
+        }
+        .title {
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+            line-height: 1rem;
+        }
+    }
+    .content {
+        padding: 0 !important;
+        width: auto;
+        height: auto;
+        pre {
+            margin-top: 0rem;
+            padding-top: 2rem;
+        }
+    }
+}
+
+.fancycode.mini .controls {
+    display: none;
+}
+
+.fancycode:not(.mini) .content {
+    padding-top: 2rem;
+}

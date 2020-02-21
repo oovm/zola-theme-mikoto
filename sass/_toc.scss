@@ -51,7 +51,7 @@ $toc-max-sreen-width: 2 * 200px + $post-toc-margin-left !default;
         }
     }
 }
-@include max-screen($toc-max-sreen-width) {
+@include mobile-screen($toc-max-sreen-width) {
     .post-toc {
         display: none;
     }

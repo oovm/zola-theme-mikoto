@@ -1,20 +1,26 @@
-#footer .container {
-    position: relative;
-    clear: both;
-    color: hsla(0, 0%, 100%, 0.4);
-    font-size: 14px;
-    background: #000;
+footer {
+    width: 100%;
+  //  position: fixed;
+  //  bottom: 0;
+
+    .container {
+        width: inherit;
+        position: relative;
+        clear: both;
+        color: hsla(0, 0%, 100%, 0.4);
+        font-size: 14px;
+        background: #000;
+
+        a {
+            color: hsla(0, 0%, 100%, 0.9);
+        }
+        a:hover {
+            color: #9a69ec;
+        }
+    }
 }
 
-#footer .container a {
-    color: hsla(0, 0%, 100%, 0.9);
-}
-
-#footer .container a:hover {
-    color: #9a69ec;
-}
-
-#footer .container .footer-wrap {
+footer .container .footer-wrap {
     position: relative;
     margin: auto;
     padding: 60px 24px;
@@ -24,42 +30,42 @@
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
 }
 
-#footer .container .footer-wrap .ant-row {
+footer .container .footer-wrap .ant-row {
     margin-left: -8px;
     margin-right: -8px;
 }
 
-#footer .container .footer-wrap .ant-row > div {
+footer .container .footer-wrap .ant-row > div {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-#footer .container .footer-wrap .footer-center {
+footer .container .footer-wrap .footer-center {
     display: inline-block;
     text-align: left;
 }
 
-#footer .container .footer-wrap .footer-center > h2 {
+footer .container .footer-wrap .footer-center > h2 {
     position: relative;
     margin: 0 auto 24px;
     font-weight: 500;
     font-size: 16px;
 }
 
-#footer .container .footer-wrap .footer-center > h2 img {
+footer .container .footer-wrap .footer-center > h2 img {
     width: 27px;
     margin-right: 16px;
 }
 
-#footer .container .footer-wrap .footer-center > h2 span {
+footer .container .footer-wrap .footer-center > h2 span {
     color: #fff;
 }
 
-#footer .container .footer-wrap .footer-center > div {
+footer .container .footer-wrap .footer-center > div {
     margin: 12px 0;
 }
 
-#footer .container .bottom-bar {
+footer .container .bottom-bar {
     margin: 0;
     padding: 16px 40px;
     overflow: hidden;
@@ -68,15 +74,15 @@
     text-align: center;
 }
 
-#footer .container .bottom-bar .heart {
+footer .container .bottom-bar .heart {
     position: relative;
     margin: 0 30px 0 5px;
     width: 20px;
     height: 20px;
 }
 
-#footer .container .bottom-bar .heart:after,
-#footer .container .bottom-bar .heart:before {
+footer .container .bottom-bar .heart:after,
+footer .container .bottom-bar .heart:before {
     position: absolute;
     content: "";
     left: 10px;
@@ -89,16 +95,16 @@
     transform-origin: 0 100%;
 }
 
-#footer .container .bottom-bar .heart:after {
+footer .container .bottom-bar .heart:after {
     left: 0;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
 }
 
-#footer .container .bottom-bar a {
+footer .container .bottom-bar a {
     color: hsla(0, 0%, 100%, 0.65);
 }
 
-#footer .container .bottom-bar a:hover {
+footer .container .bottom-bar a:hover {
     color: #fff;
 }

@@ -34,7 +34,7 @@
         }
     }
 }
-@include max-screen() {
+@include mobile-screen() {
     #header {
         .logo,
         .menu {

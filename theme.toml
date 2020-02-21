@@ -3,7 +3,17 @@ description = "A robust, elegant dark theme"
 license = "MIT"
 homepage = ""
 min_version = "0.8.0"
-demo = ""
+demo = "https://zola-mikoto.netlify.com/"
+
+[author]
+name = "Aster"
+homepage = "https://zola-mikoto.netlify.com/"
+repo = "https://github.com/GalAster/zola-theme-mikoto"
+
+[original]
+name = "Vincent Prouillet"
+homepage = "https://www.vincentprouillet.com"
+repo = "https://github.com/getzola/even"
 
 [extra]
 mikoto_title = "Mikoto"
@@ -15,11 +25,22 @@ mikoto_menu = [
     {url = "$BASE_URL/about", name = "About"},
 ]
 
-[author]
-name = "Aster"
-homepage = ""
+aplayer_enable = false
+aplayer_cdn_js = ""
+aplayer_cdn_css = ""
+aplayer_cdn_meting = ""
+aplayer_background = false
+aplayer_background_server = "netease"
+aplayer_background_type = "album"
+aplayer_background_id = "82260016"
 
-[original]
-name = "Vincent Prouillet"
-homepage = "https://www.vincentprouillet.com"
-repo = "https://github.com/getzola/even"
+live2d_enbale = false
+live2d_cdn = ""
+
+mathjax_enable = false
+mathjax_cdn = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+katex_enalbe = false
+katex_cdn = "https://cdn.jsdelivr.net/npm/katex@latest"
+
+
+font_awesome_cdn = ""

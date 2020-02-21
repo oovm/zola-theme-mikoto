@@ -45,14 +45,14 @@
 }
 
 .mobile-menu {
-    background-color: rgba($secondary-colour, 0.5);
+    background-color: white;
+    border: 1px solid $secondary-colour;
 
     .mobile-menu-list {
         position: relative;
         list-style: none;
-        margin-top: 50px;
+        margin-top: 0;
         padding: 0;
-        border-top: 1px solid $secondary-colour;
 
         .mobile-menu-item {
             padding: 10px 30px;
@@ -69,8 +69,29 @@
     }
 }
 
-@include max-screen() {
+@include mobile-screen() {
     .mobile-navbar {
         display: block;
+    }
+    .github-corner {
+        display: none;
+    }
+    #waifu {
+        display: none;
+    }
+    #waifu-toggle {
+        display: none;
+    }
+}
+
+@include desktop-screen() {
+    .MathJax {
+        zoom: 115%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    main {
+        zoom: 75%;
     }
 }
