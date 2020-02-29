@@ -1,8 +1,8 @@
-base_url = "https://zola-even.netlify.com"
-
-compile_sass = true
+base_url = "https://zola-mikoto.netlify.com/"
 title = "mikoto theme"
 description = ""
+compile_sass = true
+slugify-path = true
 highlight_code = true
 highlight_theme = "monokai"
 taxonomies = [
@@ -10,6 +10,13 @@ taxonomies = [
     {name = "tags", rss = true},
     {name = "series", rss = true},
 ]
+
+
+
+# theme = "mikoto"
+extra_syntaxes = ["syntaxes"]
+
+
 
 [extra]
 author = "Aster"
@@ -21,6 +28,10 @@ mikoto_menu = [
     {url = "$BASE_URL/series", name = "Series"},
     {url = "$BASE_URL/about", name = "About"},
 ]
+favicon = ""
+github_link = "https://github.com/GalAster/zola-theme-mikoto"
+
+# comment `enable` to close the plugin
 
 aplayer_enable = true
 aplayer_cdn_js = ""
@@ -32,3 +43,12 @@ aplayer_background_type = "album"
 aplayer_background_id = "82260016"
 
 live2d_enbale = true
+live2d_cdn = ""
+
+mathjax_enable = true
+mathjax_cdn = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+katex_enalbe = true
+katex_cdn = "https://cdn.jsdelivr.net/npm/katex@latest"
+
+
+font_awesome_cdn = ""

@@ -1,0 +1,283 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+scope: source.arc
+file_extensions:
+  - arc
+contexts:
+  main:
+    - include: comment
+    - include: table
+    - include: key_value
+  comment:
+    - match: '(?=[^\\])(%%%)'
+      captures:
+        1: punctuation.definition.comment.block.arc
+      push:
+        - meta_scope: comment.block.arc
+        - match: (%%%)
+          captures:
+            1: punctuation.definition.comment.block.arc
+          pop: true
+        - include: scope:text.html.markdown
+    - match: \s*((%).*)$
+      captures:
+        1: comment.line.number-sign.arc
+        2: punctuation.definition.comment.arc
+    - match: \s*((\|).*)$
+      captures:
+        1: string.quoted.single.literal.line.arc
+        2: string.quoted.triple.basic.block.arc
+  data:
+    - match: '(?<!\w)(\{)\s*'
+      captures:
+        1: punctuation.definition.dict.inline.arc
+      push:
+        - match: '\s*(\})(?!\w)'
+          captures:
+            1: punctuation.definition.dict.inline.arc
+          pop: true
+        - include: key_value
+        - include: data
+    - match: '(?<!\w)(\[)\s*'
+      captures:
+        1: punctuation.definition.tuple.inline.arc
+      push:
+        - match: '\s*(\])(?!\w)'
+          captures:
+            1: punctuation.definition.tuple.inline.arc
+          pop: true
+        - include: comment
+        - include: data
+    - match: \b(dt|datetime)(\')
+      captures:
+        1: keyword.macro.name.arc
+        2: string.quoted.triple.literal.block.arc
+      push:
+        - meta_scope: string.quoted.triple.literal.block.arc
+        - match: (\')
+          captures:
+            1: string.quoted.triple.literal.block.arc
+          pop: true
+        - include: macro:datetime
+    - match: \b(dt|datetime)(\|)(.*)$
+      captures:
+        1: keyword.macro.name.arc
+        2: punctuation.definition.macro.arc
+    - match: \b(ip)(\|)(.*)$
+      captures:
+        1: keyword.macro.name.arc
+        2: punctuation.definition.macro.arc
+    - match: \b(re|regex)(\|)(.*)$
+      captures:
+        1: punctuation.definition.macro.arc
+        2: keyword.macro.name.arc
+    - match: (\w+)(\|)(.*)$
+      captures:
+        1: punctuation.definition.macro.arc
+        2: keyword.macro.name.arc
+        3: string.quoted.single.basic.line.arc
+    - match: '"""'
+      push:
+        - meta_scope: string.quoted.triple.basic.block.arc
+        - match: '"""'
+          pop: true
+        - match: '\\([btnfr"/\\\n]|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})'
+          scope: constant.character.escape.arc
+        - match: '\\[^btnfr"/\\\n]'
+          scope: invalid.illegal.escape.arc
+    - match: '"[^"\\]*(?:\\.[^"\\]*)*"'
+      scope: string.quoted.single.basic.line.arc
+    - match: "'''"
+      push:
+        - meta_scope: string.quoted.triple.literal.block.arc
+        - match: "'''"
+          pop: true
+    - match: "'.*?'"
+      scope: string.quoted.single.literal.line.arc
+    - match: "([$])([A-Za-z_][A-Za-z0-9_.]*)"
+      captures:
+        1: punctuation.definition.cite.arc
+        2: support.function.cite.arc
+    - match: (?i)(?<!\w)(true)(?!\w)
+      captures:
+        1: keyword.constant.true.arc
+    - match: (?i)(?<!\w)(false)(?!\w)
+      captures:
+        1: keyword.constant.false.arc
+    - match: (?i)(?<!\w)(null)(?!\w)
+      captures:
+        1: keyword.constant.null.arc
+    - match: '(?i)(?<!\w)([\+\-]?nan)(?!\w)'
+      captures:
+        1: keyword.constant.nan.arc
+    - match: '(?i)(?<!\w)([\+\-]?infinity)(?!\w)'
+      captures:
+        1: keyword.constant.infinity.arc
+    - match: '(?<!\w)([\+\-]?(0|([1-9](([0-9]|_[0-9])+)?))(?:(?:\.(0|([1-9](([0-9]|_[0-9])+)?)))?[eE][\+\-]?[1-9]_?[0-9]*|(?:\.[0-9_]*)))(?!\w)'
+      captures:
+        1: constant.numeric.float.arc
+    - match: '(?<!\w)((?:[\+\-]?(0|([1-9](([0-9]|_[0-9])+)?))))(?!\w)'
+      captures:
+        1: constant.numeric.integer.arc
+  illegal:
+    - match: (.*)
+      captures:
+        1: invalid.illegal.arc
+  key_value:
+    - match: (\s*=.*)$
+      scope: invalid.illegal.noKey.arc
+    - match: '(\s*[A-Za-z_\-][A-Za-z0-9_\-]*\s*=)(?=\s*$)'
+      scope: invalid.deprecated.noValue.arc
+    - match: '(\^)?\s*([A-Za-z_-][\\\/@A-Za-z0-9_-]*|".+"|''.+''|[0-9]+)\s*(=|:)\s*'
+      captures:
+        1: punctuation.definition.newKey.arc
+        2: entity.name.tag.arc
+        3: punctuation.definition.keyValue.arc
+      push:
+        - match: '($|(?==)|\,|\s*(?=\}))'
+          pop: true
+        - include: comment
+        - include: data
+        - include: illegal
+    - match: '(\^)?\s*([A-Za-z_-][\\\/@A-Za-z0-9_-]*|".+"|''.+''|[0-9]+)\s*(@[A-Za-z]+)\s*(=|:)\s*'
+      captures:
+        1: punctuation.definition.newKey.arc
+        2: entity.name.tag.arc
+        3: keyword.macro.name.arc
+        4: punctuation.definition.keyValue.arc
+      push:
+        - match: '($|(?==)|\,|\s*(?=\}))'
+          pop: true
+        - include: comment
+        - include: data
+        - include: illegal
+    - match: "(?x)([*])"
+      scope: punctuation.definition.newKey.arc
+    - match: '\s*(?x)([>])\s*'
+      captures:
+        1: punctuation.definition.newData.arc
+      push:
+        - match: '($|(?==)|\,|\s*(?=\}))'
+          pop: true
+        - include: comment
+        - include: data
+        - include: illegal
+    - match: '\s*(?x)([-])(.*)$'
+      captures:
+        1: punctuation.definition.newData.arc
+        2: string.quoted.single.literal.line.arc
+  macro:datetime:
+    - match: '(?<!\w)(\d{4}\-\d{2}\-\d{2}[T| ]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[\+\-]\d{2}:\d{2}))(?!\w)'
+      scope: constant.other.datetime.offset.arc
+    - match: '\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?'
+      scope: constant.other.datetime.local.arc
+    - match: '\d{2}:\d{2}:\d{2}(?:\.\d+)?'
+      scope: constant.other.time.arc
+    - match: '\d{4}\-\d{2}\-\d{2}'
+      scope: constant.other.date.arc
+  macro:ip:
+    - match: '((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)'
+      scope: constant.other.ip.4.arc
+    - match: '([\da-fA-F]{1,4}:){7}[\da-fA-F]{1,4}'
+      scope: constant.other.ip.6.arc
+    - include: illegal
+  macro:regex:
+    - match: '\\[bB]|\^|\$'
+      scope: keyword.control.anchor.regexp
+    - match: '\\[1-9]\d*|\\k<([a-zA-Z_$][\w$]*)>'
+      captures:
+        0: keyword.other.back-reference.regexp
+        1: variable.other.regexp
+    - match: '[?+*]|\{(\d+,\d+|\d+,|,\d+|\d+)\}\??'
+      scope: keyword.operator.quantifier.regexp
+    - match: \|
+      scope: keyword.operator.or.regexp
+    - match: (\()((\?=)|(\?!)|(\?<=)|(\?<!))
+      captures:
+        1: punctuation.definition.group.regexp
+        2: punctuation.definition.group.assertion.regexp
+        3: meta.assertion.look-ahead.regexp
+        4: meta.assertion.negative-look-ahead.regexp
+        5: meta.assertion.look-behind.regexp
+        6: meta.assertion.negative-look-behind.regexp
+      push:
+        - meta_scope: meta.group.assertion.regexp
+        - match: \)
+          captures:
+            0: punctuation.definition.group.regexp
+          pop: true
+        - include: macro:regex
+    - match: '\((?:(\?:)|(?:\?<([a-zA-Z_$][\w$]*)>))?'
+      captures:
+        0: punctuation.definition.group.regexp
+        1: punctuation.definition.group.no-capture.regexp
+        2: variable.other.regexp
+      push:
+        - meta_scope: meta.group.regexp
+        - match: \)
+          captures:
+            0: punctuation.definition.group.regexp
+          pop: true
+        - include: macro:regex
+    - match: '(\[)(\^)?'
+      captures:
+        1: punctuation.definition.character-class.regexp
+        2: keyword.operator.negation.regexp
+      push:
+        - meta_scope: constant.other.character-class.set.regexp
+        - match: '(\])'
+          captures:
+            1: punctuation.definition.character-class.regexp
+          pop: true
+        - match: '(?:.|(\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\c[A-Z])|(\\.))\-(?:[^\]\\]|(\\(?:[0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}))|(\\c[A-Z])|(\\.))'
+          scope: constant.other.character-class.range.regexp
+          captures:
+            1: constant.character.numeric.regexp
+            2: constant.character.control.regexp
+            3: constant.character.escape.backslash.regexp
+            4: constant.character.numeric.regexp
+            5: constant.character.control.regexp
+            6: constant.character.escape.backslash.regexp
+        - include: regex-character-class
+    - include: regex-character-class
+  regex-character-class:
+    - match: '\\[wWsSdDtrnvf]|\.'
+      scope: constant.other.character-class.regexp
+    - match: '\\([0-7]{3}|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})'
+      scope: constant.character.numeric.regexp
+    - match: '\\c[A-Z]'
+      scope: constant.character.control.regexp
+    - match: \\.
+      scope: constant.character.escape.backslash.regexp
+  table:
+    - match: '^\s*(\[)([^\[\]]*)(\])'
+      scope: meta.tag.tuple.arc
+      captures:
+        1: punctuation.definition.tuple.arc
+        3: punctuation.definition.tuple.arc
+    - match: '(?<!\w)(\[)\s*'
+      captures:
+        1: punctuation.definition.tuple.inline.arc
+      push:
+        - match: '\s*(\])(?!\w)'
+          captures:
+            1: punctuation.definition.tuple.inline.arc
+          pop: true
+        - include: comment
+        - include: data
+    - match: '^\s*({)([^{}]*)(})'
+      scope: meta.tag.dict.arc
+      captures:
+        1: punctuation.definition.dict.arc
+        3: punctuation.definition.dict.arc
+    - match: '(?<!\w)({)\s*'
+      captures:
+        1: punctuation.definition.dict.inline.arc
+      push:
+        - match: '\s*(})(?!\w)'
+          captures:
+            1: punctuation.definition.dict.inline.arc
+          pop: true
+        - include: key_value
+        - include: data

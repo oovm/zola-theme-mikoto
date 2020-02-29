@@ -1,0 +1,78 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+scope: source.ass
+file_extensions:
+  - ass
+  - ssa
+  - aegisub
+contexts:
+  main:
+    - match: '(^[ \t]+)?(?=;)'
+      captures:
+        1: punctuation.whitespace.comment.leading.ass
+      push:
+        - match: (?!\G)
+          pop: true
+        - match: ;
+          captures:
+            0: punctuation.definition.comment.ass
+          push:
+            - meta_scope: comment.line.semicolon.ass
+            - match: \n
+              pop: true
+    - match: (Comment)(:)\s*(.*)\r?\n
+      captures:
+        1: punctuation.definition.comment.ass
+        2: punctuation.definition.keyValue.ass
+        3: comment.line.ass
+    - match: (Format)(:)
+      captures:
+        1: entity.name.tag.ass
+        2: punctuation.definition.keyValue.ass
+      push:
+        - match: '[\r\n]+'
+          pop: true
+        - match: ","
+          scope: punctuation.separator.ass
+        - match: '\b([a-zA-Z]\w*)'
+          scope: storage.type.ass
+    - match: (Style|Dialogue)(:)
+      captures:
+        1: entity.name.tag.ass
+        2: punctuation.definition.keyValue.ass
+      push:
+        - match: '[\r\n]+'
+          pop: true
+        - match: ","
+          scope: punctuation.separator.ass
+        - match: '\b\d*:[0-5][0-9]:[0-5][0-9]\.\d{2}'
+          scope: support.function.time.ass
+        - match: '\&H[0-9A-F]+'
+          scope: support.function.color.ass
+        - match: \b-?\d+(\.\d*)?
+          scope: constant.numeric.ass
+        - match: '\b[^,\r\n]*'
+          scope: string.literal.ass
+    - match: '([A-Za-z\s]*)(:)\s*'
+      captures:
+        1: entity.name.tag.ass
+        2: punctuation.definition.keyValue.ass
+      push:
+        - match: \r?\n
+          pop: true
+        - match: (?<!\w)(-?\d+(\.\d*)?)(?!\w)
+          scope: constant.numeric.ass
+        - match: '(?<!\w)([^,]*)(?!\w)'
+          scope: string.literal.ass
+        - match: (.*)
+          captures:
+            1: invalid.illegal.lyric
+    - match: '^(\[)(.*?)(\])'
+      scope: entity.name.section.group-title.ass
+      captures:
+        1: punctuation.definition.entity.ass
+        3: punctuation.definition.entity.ass
+    - match: (.*)
+      captures:
+        1: invalid.illegal.lyric

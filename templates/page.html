@@ -13,12 +13,12 @@
             <ul>
                 {% for h1 in toc %}
                 <li>
-                    <a href="{{h1.permalink | safe}}" class="toc-link">{{ h1.title }}</a>
+                    <a href={{h1.permalink | safe}} class="toc-link">{{ h1.title }}</a>
                     {% if h1.children %}
                     <ul>
                         {% for h2 in h1.children %}
                         <li>
-                            <a href="{{h2.permalink | safe}}" class="toc-link">{{ h2.title }}</a>
+                            <a href={{h2.permalink | safe}} class="toc-link">{{ h2.title }}</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -46,7 +46,7 @@
 
     <div class="post-footer">
         {% block page_footer %}
- {{ post_macros::copyright(page=page) }}
+        {{ post_macros::copyright(page=page) }}
 
 
         <div class="footer-buttons">
@@ -58,16 +58,16 @@
         {% if page.earlier or page.later or page.lighter or page.heavier %}
         <div class="post-nav">
             {% if page.earlier %}
-            <a class="next" href="{{ page.earlier.permalink }}">{{ page.earlier.title }} ›</a>
+            <a class="next" href={{ page.earlier.permalink }}>{{ page.earlier.title }} ›</a>
             {% endif %}
             {% if page.later %}
-            <a class="previous" href="{{ page.later.permalink }}">‹ {{ page.later.title }}</a>
+            <a class="previous" href={{ page.later.permalink }}>‹ {{ page.later.title }}</a>
             {% endif %}
             {% if page.lighter %}
-            <a class="next" href="{{ page.lighter.permalink }}">{{ page.lighter.title }} ›</a>
+            <a class="next" href={{ page.lighter.permalink }}>{{ page.lighter.title }} ›</a>
             {% endif %}
             {% if page.heavier %}
-            <a class="previous" href="{{ page.heavier.permalink }}">‹ {{ page.heavier.title }}</a>
+            <a class="previous" href={{ page.heavier.permalink }}>‹ {{ page.heavier.title }}</a>
             {% endif %}
         </div>
         {% endif %}

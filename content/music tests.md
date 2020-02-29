@@ -9,21 +9,16 @@ tags = ["music", "aplayer"]
 
 ```tex
 \netease[song][1395939522]
-\netease[album][82260016]
-\netease[playlist][383872947]
 ```
 
-{% netease(type = "song", id = "1395939522") %}
-	netease song
-{% end %}
+{{ netease(type = "song", id = "1395939522") }}
 
-{% netease(type = "album", id = "82260016") %}
-	netease album
-{% end %}
+```tex
+\netease[album][82260016]
+```
 
-{% netease(type = "playlist", id = "383872947") %}
-	netease playlist
-{% end %}
+{{ netease(type = "album", id = "82260016") }}
+
 
 <!-- more -->
 
