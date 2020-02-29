@@ -1,4 +1,5 @@
 {% import "post_macros.html" as post_macros %}
+{% import "extra_macros.html" as extra_macros %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +19,16 @@
     {% endblock favicon %}
 
     {% if config.generate_rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml" ) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml
+    " ) }}">
     {% endif %}
 
     {% block js %}
     <script src={{ get_url(path="basic.js" ) }}></script>
     <script src={{ get_url(path="lib/pjax.js" ) }}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
-    {{post_macros::mathjax_load(link = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")}}
-    {#post_macros::katex_load(link = "https://cdn.jsdelivr.net/npm/katex@latest")#}
+    {{extra_macros::mathjax_load(link = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")}}
+    {#extra_macros::katex_load(link = "https://cdn.jsdelivr.net/npm/katex@latest")#}
 
     {% if config.extra.aplayer_enable %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -56,7 +58,7 @@
     <div class="progress"></div>
 </div>
 <div class="container">
-    {{ post_macros::fork_on_github(link=config.extra.github_link) }}
+    {{ extra_macros::fork_on_github(link=config.extra.github_link) }}
     <div id="mobile-navbar" class="mobile-navbar">
         <div class="mobile-header-logo">
             <a href="/" class="logo">{{ config.extra.mikoto_title }}</a>
@@ -101,23 +103,9 @@
             <div class="posts">
                 {% for page in paginator.pages %}
                 <article class="post">
-                    {{ post_macros::title(page=page) }}
-                    <div class="post-labels">
-                        {% if page.taxonomies.categories %}
-                        {% for category in page.taxonomies.categories %}
-                        <a class="category" href={{ get_taxonomy_url(kind="categories" , name=category) }}># {{ category }}</a>
-                        {% endfor %}
-                        {% endif %}
-
-                        {% if page.taxonomies.tags %}
-                        {% for tag in page.taxonomies.tags %}
-                        <a class="tag" href={{ get_taxonomy_url(kind="tags" , name=tag) }}># {{ tag }}</a>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="post__summary">
-                        {{ page.summary | safe }}
-                    </div>
+                    {{ post_macros::post_title(page=page) }}
+                    {{ post_macros::post_labels(page=page) }}
+                    {{ post_macros::post_summary(page=page) }}
                     <div class="read-more">
                         <a href={{ page.permalink }}>Read more...</a>
                     </div>

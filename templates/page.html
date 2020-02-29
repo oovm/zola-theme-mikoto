@@ -33,8 +33,8 @@
 
 
 <article class="post">
-    {{ post_macros::title(page=page) }}
-    {{ post_macros::labels(page=page) }}
+    {{ post_macros::post_title(page=page) }}
+    {{ post_macros::post_labels(page=page) }}
 
     <div class="post-content">
         {{ page.content | safe }}
@@ -46,7 +46,7 @@
 
     <div class="post-footer">
         {% block page_footer %}
-        {{ post_macros::copyright(page=page) }}
+        {{ post_macros::post_copyright(page=page) }}
 
 
         <div class="footer-buttons">
