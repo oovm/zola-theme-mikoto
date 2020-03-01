@@ -15,7 +15,7 @@
     {% endblock title %}
 
     {% block favicon %}
-    <link rel="icon" href="{{ config.extra.favicon }}">
+    <link rel="icon" href={{ config.extra.favicon }}>
     {% endblock favicon %}
 
     {% if config.generate_rss %}
@@ -130,7 +130,7 @@
 </div>
 <footer id="footer">
     {% block footer %}
-
+    <meting-js auto={{config.extra.aplayer_background_autolink}} autoplay={{config.extra.aplayer_background_autoplay}} fixed="true"></meting-js>
     <div class="container">
         <div class="bottom-bar">
             Made {#with<span class="heart"></span>#}

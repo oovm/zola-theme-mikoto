@@ -10,7 +10,7 @@ if (screen.width >= 1000) {
         .all([
             loadExternalResource(live2d_path + "waifu.css", "css"),
             loadExternalResource(live2d_path + "live2d.min.js", "js"),
-            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+            loadExternalResource(live2d_path + "waifu-tips.js", "js"),
         ])
         .then(() => {
             initWidget({

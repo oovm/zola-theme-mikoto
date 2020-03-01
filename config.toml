@@ -28,27 +28,18 @@ mikoto_menu = [
     {url = "$BASE_URL/series", name = "Series"},
     {url = "$BASE_URL/about", name = "About"},
 ]
-favicon = ""
+favicon = "https://github.com/GalAster/zola-theme-mikoto"
 github_link = "https://github.com/GalAster/zola-theme-mikoto"
 
 # comment `enable` to close the plugin
 
 aplayer_enable = true
-aplayer_cdn_js = ""
-aplayer_cdn_css = ""
-aplayer_cdn_meting = ""
 aplayer_background = true
-aplayer_background_server = "netease"
-aplayer_background_type = "album"
-aplayer_background_id = "82260016"
+aplayer_background_autolink = "http://music.163.com/playlist?id=2964675527"
+aplayer_background_autoplay = false
 
-live2d_enbale = true
-live2d_cdn = ""
+live2d_enable = true
 
 mathjax_enable = true
-mathjax_cdn = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
 katex_enalbe = true
-katex_cdn = "https://cdn.jsdelivr.net/npm/katex@latest"
 
-
-font_awesome_cdn = ""
