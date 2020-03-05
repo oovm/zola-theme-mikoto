@@ -6,6 +6,7 @@ tags = [
   "placeholder posts",
   "prime-number posts",
 ]
+series = "nothing"
 +++
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

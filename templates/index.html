@@ -19,8 +19,7 @@
     {% endblock favicon %}
 
     {% if config.generate_rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path=" rss.xml
-    " ) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href={{ get_url(path="rss.xml" ) }}>
     {% endif %}
 
     {% block js %}
@@ -53,7 +52,6 @@
 </head>
 
 <body>
-<a id="top"></a>
 <div class="loading-bar">
     <div class="progress"></div>
 </div>
@@ -74,9 +72,7 @@
         <ul class="mobile-menu-list">
             {% for item in config.extra.mikoto_menu %}
             <li class="mobile-menu-item">
-                <a href={{ item.url | replace(from="$BASE_URL" , to=config.base_url) }}>
-                    {{ item.name }}
-                </a>
+                <a href={{ item.url | replace(from="$BASE_URL" , to=config.base_url) }}> {{ item.name }} </a>
             </li>
             {% endfor %}
         </ul>
@@ -88,9 +84,7 @@
             <ul>
                 {% for item in config.extra.mikoto_menu %}
                 <li>
-                    <a href={{ item.url | replace(from="$BASE_URL" , to=config.base_url) }}>
-                        {{ item.name }}
-                    </a>
+                    <a href={{ item.url | replace(from="$BASE_URL" , to=config.base_url) }}> {{ item.name }} </a>
                 </li>
                 {% endfor %}
             </ul>
@@ -130,7 +124,11 @@
 </div>
 <footer id="footer">
     {% block footer %}
+    {% if config.extra.aplayer_enable %}
+    {% if config.extra.aplayer_background %}
     <meting-js auto={{config.extra.aplayer_background_autolink}} autoplay={{config.extra.aplayer_background_autoplay}} fixed="true"></meting-js>
+    {% endif %}
+    {% endif %}
     <div class="container">
         <div class="bottom-bar">
             Made {#with<span class="heart"></span>#}

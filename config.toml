@@ -1,4 +1,4 @@
-base_url = "https://zola-mikoto.netlify.com/"
+base_url = "https://zola-mikoto.netlify.com"
 title = "mikoto theme"
 description = ""
 compile_sass = true
@@ -8,7 +8,7 @@ highlight_theme = "monokai"
 taxonomies = [
     {name = "categories", rss = true},
     {name = "tags", rss = true},
-    {name = "series", rss = true},
+    # {name = "series", rss = true},
 ]
 
 
@@ -21,14 +21,8 @@ extra_syntaxes = ["syntaxes"]
 [extra]
 author = "Aster"
 mikoto_title = "Mikoto"
-mikoto_menu = [
-    {url = "$BASE_URL", name = "Home"},
-    {url = "$BASE_URL/categories", name = "Categories"},
-    {url = "$BASE_URL/tags", name = "Tags"},
-    {url = "$BASE_URL/series", name = "Series"},
-    {url = "$BASE_URL/about", name = "About"},
-]
-favicon = "https://github.com/GalAster/zola-theme-mikoto"
+
+favicon = "https://avatars.githubusercontent.com/u/43047029"
 github_link = "https://github.com/GalAster/zola-theme-mikoto"
 
 # comment `enable` to close the plugin

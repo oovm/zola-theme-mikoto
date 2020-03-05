@@ -85,9 +85,7 @@
 }
 
 @include desktop-screen() {
-    .MathJax {
-        zoom: 115%;
-    }
+
 }
 
 @media screen and (max-width: 640px) {
