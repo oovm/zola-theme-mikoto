@@ -53,6 +53,6 @@ function do_pjax () {
     });
 
     document.addEventListener('pjax:complete', function () {
-        MathJax.typeset()
+        window.MathJax.typeset()
     });
 }

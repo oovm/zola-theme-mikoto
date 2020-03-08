@@ -7,7 +7,7 @@ command = "zola build"
 
 [build.environment]
 # Set the version name that you want to use and Netlify will automatically use it.
-ZOLA_VERSION = "0.9.0"
+ZOLA_VERSION = "0.10.0"
 DEPLOY_PRIME_URL = "https://zola-mikoto.netlify.com/"
 
 # The magic for deploying previews of branches.
