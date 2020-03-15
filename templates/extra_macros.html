@@ -21,11 +21,14 @@
 
 
 {% macro mathjax_load(link) %}
+{% if config.extra.mathjax_enable %}
 <script src={{ get_url(path="lib/mathjax.js" ) }}></script>
 <script id="MathJax-script" async src={{link}}></script>
-{% endmacro title %}
+{% endif %}
+{% endmacro %}
 
 {% macro katex_load(link) %}
+{% if config.extra.katex_enalbe %}
 <link rel="stylesheet" href="{{link}}/dist/katex.min.css" crossorigin="anonymous">
 <script type="module">
 import renderMathInElement from "{{link ~ "/dist/contrib/auto-render.mjs"}}";
@@ -43,11 +46,12 @@ const katex_config = {
 }
 renderMathInElement(document.body, katex_config);
 </script>
+{% endif %}
 {% endmacro  %}
 
 
 {% macro aplayer_load(link) %}
 
-{% endmacro  %}
+{% endmacro %}
 
 

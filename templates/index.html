@@ -27,7 +27,7 @@
     <script src={{ get_url(path="lib/pjax.js" ) }}></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
     {{extra_macros::mathjax_load(link = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")}}
-    {#extra_macros::katex_load(link = "https://cdn.jsdelivr.net/npm/katex@latest")#}
+    {{extra_macros::katex_load(link = "https://cdn.jsdelivr.net/npm/katex@latest")}}
 
     {% if config.extra.aplayer_enable %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
