@@ -19,6 +19,7 @@ extra_syntaxes = ["syntaxes"]
 
 
 [extra]
+copyright = true
 author = "Aster"
 mikoto_title = "Mikoto"
 mikoto_menu = [

@@ -48,8 +48,9 @@
 
     <div class="post-footer">
         {% block page_footer %}
+        {% if config.extra.copyright %}
         {{ post_macros::post_copyright(page=page) }}
-
+        {% endif %}
 
         <div class="footer-buttons">
             <button type="button" class="footer"><span class="text"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp;赞赏</span></button>
